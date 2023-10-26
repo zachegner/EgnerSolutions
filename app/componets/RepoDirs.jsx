@@ -4,7 +4,7 @@ async function fetchRepoContents(name) {
   await new Promise((resolve) => setTimeout(resolve, 3000));
 
   const response = await fetch(
-    `https://api.github.com/repos/bradtraversy/${name}/contents`,
+    `https://api.github.com/repos/zachegner/${name}/contents`,
     {
       next: {
         revalidate: 60,
@@ -25,7 +25,7 @@ const RepoDirs = async ({ name }) => {
       <ul>
         {dirs.map((dir) => (
           <li key={dir.path}>
-            <Link href={`/code/repos/${name}/${dir.path}`}>{dir.path}</Link>
+            <Link href={`https://github.com/zachegner/${name}/tree/main/${dir.path}`}>{dir.path}</Link>
           </li>
         ))}
       </ul>
